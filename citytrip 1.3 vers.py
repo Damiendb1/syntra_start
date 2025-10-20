@@ -319,3 +319,32 @@ def main() -> None:
         by=["Total Trip Cost (€)", "Cost / Usable Hour (€)"],
         ascending=[True, True]
     ).reset_index(drop=True)
+
+    # 2) Scoring
+    df_scored = score_table(df_sorted, KERSTMARKT_SCORE, WEER_FACTOR)
+
+    # 3) CSV’s
+    path_compare = os.path.join("output", "trip_comparison_27Nov_1Dec.csv")
+    path_scored = os.path.join("output", "trip_scored_27Nov_1Dec.csv")
+    df_sorted.to_csv(path_compare, index=False)
+    df_scored.to_csv(path_scored, index=False)
+    print(f"CSV saved:\n- {path_compare}\n- {path_scored}")
+
+    # 4) Grafieken
+    save_bar(df_sorted["City"], df_sorted["Total Trip Cost (€)"],
+             "Total Trip Cost (€)", "€", "total_cost.png")
+    save_bar(df_sorted["City"], df_sorted["Cost / Usable Hour (€)"],
+             "Cost per Usable Hour (€)", "€ per hour", "cost_per_usable_hour.png")
+    save_bar(df_sorted["City"], df_sorted["Usable Hours"],
+             "Usable Hours on the Ground", "Hours", "usable_hours.png")
+    save_bar(df_scored["City"], df_scored["Overall Score (0-1)"],
+             "Overall City Score (higher is better)", "Score (0-1)", "overall_score.png")
+
+    # 5) Scenario-grid (optioneel)
+    if SCENARIOS_ENABLED:
+        run_scenarios(df_sorted, KERSTMARKT_SCORE, WEER_FACTOR)
+
+    print("Klaar! Pas data/gewichten aan en run opnieuw voor snelle what-if analyses.")
+
+if __name__ == "__main__":
+    main()
