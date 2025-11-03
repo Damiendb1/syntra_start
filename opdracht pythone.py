@@ -14,7 +14,8 @@
 #         print("Bestand niet gevonden. Probeer opnieuw: ")
 
 #      C:\Users\Damien\Desktop\Python data\bord.csv
-#      C:\datadev\opdracht pythone.py
+#      C:\datadev\syntra_start\opdracht pythone.py
+#      C:\datadev\bord.csv
 
 
 def safe_open(filename:str):
@@ -93,4 +94,39 @@ def print_datum(contents):
     print(f"totaal:{len(unieke_datums)} unieke dagen")
 
 print_datum(contents)
+
+
+def print_getalstats(contents):
+    """print hoogste/laagste/gemiddeld willekeurig getal"""
+getallen = []
+for rij in contents:
+        raw= rij[3]
+        if raw is None:
+            continue
+
+        waarde= raw.strip()
+        if not waarde:
+            continue
+
+        waarde = waarde.replace(' ', '').replace(',','.')
+
+        try:
+            getal= float(waarde)
+            getallen.append(getal)
+        except ValueError:
+            #   print(f"Ongeldig getal: {waarde}")
+            continue
+
+Highest = max (getallen)
+Lowest = min (getallen)
+Middle = sum (getallen) / len(getallen)
+
+print(f"Aantal getallen gevonden: {len(getallen)}")
+print(f"Aantal getallen laagste: {(getallen)}")
+print(f"Gemiddelde: {Middle}")
+print(f"Highest Number: {Highest}")
+print(f"Lowest Number: {Lowest}")
+
+
+
 
