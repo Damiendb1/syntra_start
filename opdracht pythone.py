@@ -114,8 +114,8 @@ for rij in contents:
             getal= float(waarde)
             getallen.append(getal)
         except ValueError:
-            #   print(f"Ongeldig getal: {waarde}")
-            continue
+         print(f"Ongeldig getal: {waarde}")
+        continue
 
 Highest = max (getallen)
 Lowest = min (getallen)
@@ -127,8 +127,52 @@ print(f"Gemiddelde: {Middle}")
 print(f"Highest Number: {Highest}")
 print(f"Lowest Number: {Lowest}")
 
-commit
+def print_kleur(contents):
+    """Print hoeveel keer elke kleur vooorkomt"""
+
+kleuren_teller = {}
+
+for i in range(len(contents)):
+    kleur = contents[i][5].strip().lower()
+    if kleur == "":
+        continue
+
+    if (kleur in kleuren_teller):
+          kleuren_teller[kleur] += 1
+    else:
+          kleuren_teller[kleur] = 1
+
+print("aantal keer dat kler voorkomt:")
+for kleur, aantal in kleuren_teller.items():
+    print(f"{kleur.upper()}: {aantal}")
+
+hoogste_kleur = None
+hoogste_aantal = 0
+
+for kleur, aantal in kleuren_teller.items():
+    if aantal > hoogste_aantal:
+        hoogste_kleur = kleur
+        hoogste_aantal = aantal
+print(f"De kleur dat het meest voorkomt: {hoogste_kleur.upper()}")
+
+
+def print_plaatsnaam(contents):
+    """print plaatsnamen zonder dubbels hoofdletter ongevoelig"""
+    unieke_plaatsen = set()
+    for i in range(len(contents)):
+        plaats = contents[i][4].strip().lower()
+        if plaats == "":
+            continue
+
+        unieke_plaatsen.add(plaats)
+
+    print("unieke plaats:")
+    for plaats in unieke_plaatsen:
+        print(plaats.upper())
+
+    print(f"totaal: {len(unieke_plaatsen)} unieke plaatsnamen")
 
 
 
+print_plaatsnaam(contents)
 
