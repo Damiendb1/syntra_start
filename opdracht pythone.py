@@ -127,6 +127,8 @@ print(f"Gemiddelde: {Middle}")
 print(f"Highest Number: {Highest}")
 print(f"Lowest Number: {Lowest}")
 
+commit
+
 
 
 
