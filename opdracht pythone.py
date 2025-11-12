@@ -172,7 +172,7 @@ def print_plaatsnaam(contents):
 
     print(f"totaal: {len(unieke_plaatsen)} unieke plaatsnamen")
 
-test
+testt
 
 print_plaatsnaam(contents)
 
