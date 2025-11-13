@@ -174,3 +174,19 @@ def print_plaatsnaam(contents):
 
 
 print_plaatsnaam(contents)
+
+def print_deelname(contents):
+    """print volledig & onvolledige deelnames """
+    totaal = len(contents)
+    volledig = 0
+    onvolledig = 0
+    for i in range(len(contents)):
+        datestamp = contents[i][2].strip()
+        if datestamp == "":
+            onvolledig += 1
+        else:
+            volledig += 1
+
+    print(f"Er zijn {totaal} inzendingen: volledig: {volledig} en onvolledige: {onvolledig} ")
+print_deelname(contents)
+
