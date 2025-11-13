@@ -1,17 +1,6 @@
 """Evaluatie Modele 01 - Functioneel programmeren"""
 
 
-# while True:
-#     csvbestand = input("Geef het pad van CSV bestand OF typ 'Stop': ")
-#     if csvbestand.lower() == "stop":
-#         print("Programma gestopt")
-#         break
-#     try:
-#         csvbestand = open(csvbestand, "r")
-#         print("Bestand succesvol geopend")
-#         break
-#     except FileNotFoundError:
-#         print("Bestand niet gevonden. Probeer opnieuw: ")
 
 #      C:\Users\Damien\Desktop\Python data\bord.csv
 #      C:\datadev\syntra_start\opdracht pythone.py
@@ -58,10 +47,16 @@ print(f"Aantal rijen in contents: {len(contents)}")
 # for row in contents[:10]:
 #     print(row)
 
+
+
+
 def print_x_lines(contents):
     """print aantal lijnen uit contents"""
     amount = len(contents)
     print(f"Aantal rijen in contents: {amount}")
+
+
+
 
 def print_inhoud(contents):
     """print inhoud uit contents: Lijn per Lijn"""
@@ -75,7 +70,10 @@ def print_inhoud(contents):
         Qwoord = contents[i][6]
         print(f"id {id} gestart op {startdate}, verzonden om: {datestamp}, {getal}, {plaats}, {kleur}, {Qwoord} ")
 
-print_inhoud(contents)
+#print_inhoud(contents)
+
+
+
 
 def print_datum(contents):
     """print unieke datums van inzending"""
@@ -93,7 +91,9 @@ def print_datum(contents):
 
     print(f"totaal:{len(unieke_datums)} unieke dagen")
 
-print_datum(contents)
+#print_datum(contents)
+
+
 
 
 def print_getalstats(contents):
@@ -105,7 +105,7 @@ for rij in contents:
             continue
 
         waarde= raw.strip()
-        if not waarde:
+        if waarde == "":
             continue
 
         waarde = waarde.replace(' ', '').replace(',','.')
@@ -113,9 +113,8 @@ for rij in contents:
         try:
             getal= float(waarde)
             getallen.append(getal)
-        except ValueError:
-         print(f"Ongeldig getal: {waarde}")
-        continue
+        except:
+            continue
 
 Highest = max (getallen)
 Lowest = min (getallen)
@@ -126,6 +125,11 @@ print(f"Aantal getallen laagste: {(getallen)}")
 print(f"Gemiddelde: {Middle}")
 print(f"Highest Number: {Highest}")
 print(f"Lowest Number: {Lowest}")
+
+#print_getalstats(contents)
+
+
+
 
 def print_kleur(contents):
     """Print hoeveel keer elke kleur vooorkomt"""
@@ -155,6 +159,9 @@ for kleur, aantal in kleuren_teller.items():
         hoogste_aantal = aantal
 print(f"De kleur dat het meest voorkomt: {hoogste_kleur.upper()}")
 
+#print_kleur(contents)
+
+
 
 def print_plaatsnaam(contents):
     """print plaatsnamen zonder dubbels hoofdletter ongevoelig"""
@@ -173,7 +180,9 @@ def print_plaatsnaam(contents):
     print(f"totaal: {len(unieke_plaatsen)} unieke plaatsnamen")
 
 
-print_plaatsnaam(contents)
+#print_plaatsnaam(contents)
+
+
 
 def print_deelname(contents):
     """print volledig & onvolledige deelnames """
@@ -187,6 +196,143 @@ def print_deelname(contents):
         else:
             volledig += 1
 
-    print(f"Er zijn {totaal} inzendingen: volledig: {volledig} en onvolledige: {onvolledig} ")
-print_deelname(contents)
+    print(f"Er zijn {totaal} inzendingen: volledig: {volledig} en onvolledig: {onvolledig} ")
+#print_deelname(contents)
 
+
+
+def print_id(contents):
+    """Print id stats. Welke ontbreken en oplopende rij"""
+    ids = []
+
+    for i in range(len(contents)):
+        try:
+            ids.append(int(contents[i][0].strip()))
+        except:
+            continue
+
+    min_id = min(ids)
+    max_id = max(ids)
+
+    ontbrekende_ids = []
+    for nummer in range(min_id, max_id + 1):
+        if nummer not in ids:
+            ontbrekende_ids.append(nummer)
+    print(f"De ontbrekende id's: {ontbrekende_ids}")
+
+#print_id(contents)
+
+
+
+def print_Q_stats(contents):
+    """print hoeveel woorden beginnen met Q.
+    Hoeveel niet beginnen met Q
+    Hoeveel woorden geen Q bevatten"""
+    beginnen_met_Q = 0
+    bevatten_Q = 0
+    geen_Q = 0
+
+    for i in range(len(contents)):
+        qwooord = contents[i][6].strip().lower()
+
+        if qwooord == "":
+            continue
+        if "q" not in qwooord:
+            geen_Q += 1
+            continue
+        elif qwooord.startswith("q"):
+            beginnen_met_Q += 1
+        else:
+            bevatten_Q += 1
+    print(f"{beginnen_met_Q} woorden beginnen met Q")
+    print(f"{bevatten_Q} woorden bevatten Q maar niet als eerste")
+    print(f"{geen_Q} zonder Q")
+
+#print_Q_stats(contents)
+
+
+
+
+def save_q_inzendingen(contents):
+    """Vraag bestandsnaam en schrijf velden weg id,getal,kleur,q-woord"""
+    bestandsnaam = input("Geef een bestandsnaam om op te slaan (of typ STOP): ").strip().strip('"')
+
+    if bestandsnaam.lower() == "stop":
+        print("Opslaan geannuleerd.")
+        return
+
+    try:
+        f = open(bestandsnaam, "w", encoding="utf-8")
+    except:
+        print(f"Kon bestand '{bestandsnaam}' niet openen om te schrijven.")
+        return
+
+    for i in range(len(contents)):
+        id_str = contents[i][0].strip()
+        getal_str = contents[i][3].strip()
+        kleur = contents[i][5].strip()
+        qwoord = contents[i][6].strip()
+
+        try:
+            float(getal_str.replace(",", "."))
+        except:
+            continue
+
+        if qwoord == "":
+            continue
+        if not qwoord.lower().startswith("q"):
+            continue
+
+        f.write(f"{id_str};{getal_str};{kleur};{qwoord}\n")
+
+    f.close()
+    print(f"Inzendingen succesvol opgeslagen in: {bestandsnaam}")
+
+
+#save_q_inzendingen(contents)
+
+
+
+def toon_menu():
+    print("\n--- MENU ---")
+    print("1) Print het aantal lijnen")
+    print("2) Print de inhoud")
+    print("3) Print datums")
+    print("4) Print getal stats")
+    print("5) Print kleur stats")
+    print("6) Print plaatsnamen")
+    print("7) Print deelname stats")
+    print("8) Print id stats")
+    print("9) Print Q stats")
+    print("10) Save (naar bestand)")
+    print("STOP) Programma stoppen")
+
+
+while True:
+    toon_menu()
+    choice = input("Maak een keuze 1-10 of Stop").strip().lower()
+    if choice == "stop":
+        print("Programa stopped.")
+        break
+    elif choice == "1":
+        print_x_lines(contents)
+    elif choice == "2":
+        print_inhoud(contents)
+    elif choice == "3":
+        print_datum(contents)
+    elif choice == "4":
+        print_getalstats(contents)
+    elif choice == "5":
+        print_kleur(contents)
+    elif choice == "6":
+        print_plaatsnaam(contents)
+    elif choice == "7":
+        print_deelname(contents)
+    elif choice == "8":
+        print_id(contents)
+    elif choice == "9":
+        print_Q_stats(contents)
+    elif choice == "10":
+        save_q_inzendingen(contents)
+    else:
+        print("ongeldig, probeer opnieuw")
