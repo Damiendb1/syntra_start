@@ -1,0 +1,54 @@
+Als je de gegevens van een persoon zou willen capteren in een programma,
+aan welke eigenschappen denk je dan?
+
+Persoon:
+    Naam
+    Geslacht
+    Adres
+    Lengte
+    RRN
+    Ouderdom / Leeftijd
+    Gewicht
+    DNA
+    Fingerprints
+    Haarkleur
+    Beroep
+    Relaties met andere persoon
+    Burgelijke stand
+
+Zelfde vraag voor een adres.
+
+Adres:
+    Straatnaam
+    Huisnummer
+    Postcode
+    Woonplaats/Stad
+    Land
+    Coördinaten / NIS-nummer
+
+Zelfde vraag voor een beroep.
+
+Beroep:
+    Functie
+    Sector
+    Bedrijf ?
+    Gemiddeld loon.
+
+Zelfde vraag voor een dobbelsteen.
+
+Dobbelsteen:
+    Aantal ogen / Zijden
+    kleur
+    Materiaal
+
+Zelfde vraag voor een inzending op www.12test.be/BORD
+
+Inzending:
+    id
+    start_datum
+    verzenddatuum
+    kleur
+    getal
+    q_woord
+    plaats
+

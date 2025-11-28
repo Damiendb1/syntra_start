@@ -1,10 +1,88 @@
 """Evaluatie Modele 01 - Functioneel programmeren"""
+from dataclasses import dataclass
 
-
+from pandas.core.array_algos.quantile import quantile_with_mask
 
 #      C:\Users\Damien\Desktop\Python data\bord.csv
 #      C:\datadev\syntra_start\opdracht pythone.py
 #      C:\datadev\bord.csv
+
+FILENAME="C:\\Users\\Damien\\Desktop\\Python data\\bord.csv"
+import os
+from dataclasses import dataclass
+
+@dataclass
+class Entry:
+    id_: str
+    start_date: str
+    end_date: str
+    number: str
+    location: str
+    color: str
+    q_word: str
+
+    def contains_q(entry):
+        """Bepaal of het q woord van deze instantie een Q bevat"""
+        qw = entry.q_word
+        qw_upper = qw.upper()
+        return 'Q' in qw_upper
+
+    def starts_with_q(entry):
+        """start met q """
+        qw = entry.q_word
+        qw_upper = qw.upper()
+        return qw_upper.startswith('Q')
+
+    def make_color_upper(entry):
+        col = entry.color
+        entry.color = col.upper()
+        pass
+
+    def make_location_upper(entry):
+        loc = entry.location
+        entry.location = loc.upper()
+
+    def enddate_get_date_part(entry):...
+
+dummy_entry = Entry("1","2023-01-01 23:45:12", "2023-01-01 10:32:23", "123", "Gent", "yellow", "fuiz")
+print(dummy_entry)
+print("Entry.qword bevat een Q", dummy_entry.contains_q())
+dummy_entry.make_color_upper()
+print(dummy_entry)
+exit()
+
+
+
+def load_data(valueError=None) -> bool:
+    """Load the file contents
+    return: succesful or not
+    """
+    try:
+        f = open(FILENAME, "r")
+    except (FileNotFoundError, PermissionError) as e:
+        print(f"Openen van bestand niet gelukt")
+        return True
+    try:
+        next(f)
+        for line in f:
+            try:
+                parts = line[:-1].split(";")
+
+            except valueError as e:
+                print(f"Probleem met lezen van regel")
+                return False
+            instance = Entry(id_ = parts[0],
+                             start_date = parts[1],
+                             end_date = parts[2],
+                             number = parts[3],
+                             location = parts[4],
+                             color = parts[5],
+                             q_word = parts[6])
+            contents.append(instance)
+        for Entry in contents:
+            print(Entry)
+    finally: f.close()
+
 
 
 def safe_open(filename:str):

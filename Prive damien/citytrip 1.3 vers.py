@@ -9,7 +9,7 @@ Wat dit script doet:
 
 Gebruik:
 - Pas onderaan FLIGHTS/BUDGETS + (optioneel) KERSTMARKT_SCORE/WEER_FACTOR/WEIGHTS aan.
-- Run dit bestand. Alle output komt in ./output
+- Run dit bestand. Alle Prive damien komt in ./Prive damien
 Benodigdheden: pip install pandas matplotlib
 """
 
@@ -160,7 +160,7 @@ def score_table(df: pd.DataFrame,
     ]
     return df[cols].sort_values(by="Overall Score (0-1)", ascending=False).reset_index(drop=True)
 
-def save_bar(x, y, title, ylabel, filename, outdir="output"):
+def save_bar(x, y, title, ylabel, filename, outdir="Prive damien"):
     plt.figure()
     plt.bar(x, y)
     plt.title(title)
@@ -211,7 +211,7 @@ def generate_weight_grid() -> List[dict]:
 def run_scenarios(df_sorted: pd.DataFrame,
                   kerst_scores: Dict[str, int],
                   weer_scores: Dict[str, int]) -> None:
-    os.makedirs("output", exist_ok=True)
+    os.makedirs("", exist_ok=True)
     scenarios = generate_weight_grid()
     winner_rows, score_rows = [], []
     win_counts: Dict[str, int] = {}
@@ -242,11 +242,11 @@ def run_scenarios(df_sorted: pd.DataFrame,
             })
 
     winners_df = pd.DataFrame(winner_rows)
-    winners_path = os.path.join("output", "scenario_winners.csv")
+    winners_path = os.path.join("", "scenario_winners.csv")
     winners_df.to_csv(winners_path, index=False)
 
     scores_df = pd.DataFrame(score_rows)
-    scores_path = os.path.join("output", "scenario_scores.csv")
+    scores_path = os.path.join("", "scenario_scores.csv")
     scores_df.to_csv(scores_path, index=False)
 
     print(f"Scenario CSV saved:\n- {winners_path}\n- {scores_path}")
@@ -261,7 +261,7 @@ def run_scenarios(df_sorted: pd.DataFrame,
         plt.ylabel("#Wins across scenarios")
         plt.xticks(rotation=30)
         plt.tight_layout()
-        win_png = os.path.join("output", "scenario_win_counts.png")
+        win_png = os.path.join("", "scenario_win_counts.png")
         plt.savefig(win_png, dpi=160)
         print(f"Saved: {win_png}")
 
@@ -304,7 +304,7 @@ WEER_FACTOR = {
 
 # =============== Main ===============
 def main() -> None:
-    os.makedirs("output", exist_ok=True)
+    os.makedirs("", exist_ok=True)
 
     # 1) Basis vergelijking
     rows: List[Dict[str, float]] = []
@@ -324,8 +324,8 @@ def main() -> None:
     df_scored = score_table(df_sorted, KERSTMARKT_SCORE, WEER_FACTOR)
 
     # 3) CSV’s
-    path_compare = os.path.join("output", "trip_comparison_27Nov_1Dec.csv")
-    path_scored = os.path.join("output", "trip_scored_27Nov_1Dec.csv")
+    path_compare = os.path.join("", "trip_comparison_27Nov_1Dec.csv")
+    path_scored = os.path.join("", "trip_scored_27Nov_1Dec.csv")
     df_sorted.to_csv(path_compare, index=False)
     df_scored.to_csv(path_scored, index=False)
     print(f"CSV saved:\n- {path_compare}\n- {path_scored}")
