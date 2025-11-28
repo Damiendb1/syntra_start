@@ -25,6 +25,9 @@ while True:
         continue
     print("")
 
+    exit()
+
+
 
 # while True:
 #     invoer = input("Invoer: ")
