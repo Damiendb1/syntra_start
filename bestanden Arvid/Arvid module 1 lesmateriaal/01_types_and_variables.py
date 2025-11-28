@@ -163,3 +163,4 @@ Sinds Python 3.10 zijn dit ook keywords.
 Maar om te vermijden dat oude code niet meer 
 zou werken zijn ze eigenlijk wel toegelaten.  
 """
+exit()
