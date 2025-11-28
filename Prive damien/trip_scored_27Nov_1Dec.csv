@@ -1,0 +1,8 @@
+City,Overall Score (0-1),"Cost Score (0-1, higher=better)",Market Score (0-1),Weather Score (0-1),Total Trip Cost (€),Cost / Usable Hour (€),Usable Hours,Flight Price (€),Lodging Total (€),Daily Spend Total (€),Airport Transfers (€),Depart Airport,Outbound,Return,Airline,Kerstmarktscore (0-10),Weerfactor (0-10)
+Prague,0.87,1.0,0.9,0.5,375,7.71,48.7,95,112,160,8,CRL,Thu 27 Nov 08:50 → Thu 27 Nov 10:25,Sun 30 Nov 21:05 → Sun 30 Nov 22:40,Ryanair,9.0,5.0
+Warsaw,0.714,0.907,0.6,0.4,400,8.09,49.4,110,140,140,10,BRU,Thu 27 Nov 07:15 → Thu 27 Nov 09:20,Sun 30 Nov 20:45 → Sun 30 Nov 22:55,LOT,6.0,4.0
+Porto,0.633,0.746,0.4,0.7,443,8.77,50.5,105,160,168,10,CRL,Thu 27 Nov 07:00 → Thu 27 Nov 09:00,Sun 30 Nov 21:30 → Sun 30 Nov 23:55,Ryanair,4.0,7.0
+Vienna,0.588,0.376,1.0,0.5,528,10.7,49.3,120,192,204,12,BRU,Thu 27 Nov 07:25 → Thu 27 Nov 09:10,Sun 30 Nov 20:30 → Sun 30 Nov 22:15,Austrian,10.0,5.0
+Valencia,0.547,0.594,0.3,0.8,477,9.59,49.8,115,180,172,10,CRL,Thu 27 Nov 07:10 → Thu 27 Nov 09:30,Sun 30 Nov 21:15 → Sun 30 Nov 23:45,Ryanair,3.0,8.0
+Rome,0.396,0.273,0.4,0.7,556,11.12,50.0,130,220,192,14,BRU,Thu 27 Nov 06:55 → Thu 27 Nov 09:00,Sun 30 Nov 21:00 → Sun 30 Nov 23:10,Brussels Airlines,4.0,7.0
+Tenerife,0.21,0.0,0.1,0.9,584,13.5,43.2,180,200,188,16,CRL,Thu 27 Nov 07:00 → Thu 27 Nov 11:30,Sun 30 Nov 16:45 → Sun 30 Nov 22:45,Ryanair,1.0,9.0

@@ -1,0 +1,8 @@
+City,Flight Price (€),Lodging Total (€),Daily Spend Total (€),Airport Transfers (€),Total Trip Cost (€),Usable Hours,Cost / Day (€),Cost / Usable Hour (€),Depart Airport,Outbound,Return,Airline
+Prague,95,112,160,8,375,48.7,93.75,7.71,CRL,Thu 27 Nov 08:50 → Thu 27 Nov 10:25,Sun 30 Nov 21:05 → Sun 30 Nov 22:40,Ryanair
+Warsaw,110,140,140,10,400,49.4,100.0,8.09,BRU,Thu 27 Nov 07:15 → Thu 27 Nov 09:20,Sun 30 Nov 20:45 → Sun 30 Nov 22:55,LOT
+Porto,105,160,168,10,443,50.5,110.75,8.77,CRL,Thu 27 Nov 07:00 → Thu 27 Nov 09:00,Sun 30 Nov 21:30 → Sun 30 Nov 23:55,Ryanair
+Valencia,115,180,172,10,477,49.8,119.25,9.59,CRL,Thu 27 Nov 07:10 → Thu 27 Nov 09:30,Sun 30 Nov 21:15 → Sun 30 Nov 23:45,Ryanair
+Vienna,120,192,204,12,528,49.3,132.0,10.7,BRU,Thu 27 Nov 07:25 → Thu 27 Nov 09:10,Sun 30 Nov 20:30 → Sun 30 Nov 22:15,Austrian
+Rome,130,220,192,14,556,50.0,139.0,11.12,BRU,Thu 27 Nov 06:55 → Thu 27 Nov 09:00,Sun 30 Nov 21:00 → Sun 30 Nov 23:10,Brussels Airlines
+Tenerife,180,200,188,16,584,43.2,146.0,13.5,CRL,Thu 27 Nov 07:00 → Thu 27 Nov 11:30,Sun 30 Nov 16:45 → Sun 30 Nov 22:45,Ryanair
