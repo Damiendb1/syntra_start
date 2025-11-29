@@ -1,6 +1,15 @@
 from datetime import datetime
 from decimal import Decimal
-
+# Oefening 1:
+# Maak een klasse Employee met als attributen name: string, date_of_birth: datetime;
+# departement: str en salary: Decimal.
+# Zorg dat init, repr, eq in orde zijn
+# Zorg voor een function promote die het salaris van een employee verhoogt met 5%.
+# Maak een subklasse Manager van Employee met function promote die het salaris verhoogt met 10%, zorg
+# dat repr in orde is
+# Uitbreiding
+# Maak een subklasse CEO van Manager met function promote die het salaris verhoogt met 15%.
+# Zorg dat repr in orde is
 
 
 class Employee:
