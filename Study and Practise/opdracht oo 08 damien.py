@@ -39,7 +39,6 @@ e3 = Ceo("Bigg BOSS", datetime(1950,1,1), Decimal(15000), department="HR 2.0")
 #print(e1)
 #print(e2)
 #print(e3)
-
 personeel = [e1, e2, e3]
 print(personeel)
 
