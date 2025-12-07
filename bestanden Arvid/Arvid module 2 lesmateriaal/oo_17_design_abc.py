@@ -91,7 +91,7 @@ class KiloMeter(Distance):
 #                 |
 #                 +-- Mile
 # 7B: Zorg er voor dat elke Metric Distance wordt afgedrukt als "Metric[xxx]" met xxx de waarde en unit van de afstand.
-#      bv:  Kilometer(10)  wordt afgedrukt als "Metric[10km]"
+#      bv:  Kilometer(10)  wordt afgedruàkt als "Metric[10km]"
 #     Zorg er voor dat elke Imperial Distance wordt afgedrukt als "Imp[xxx]"  met xxx de waarde en unit van de afstand.
 
 
