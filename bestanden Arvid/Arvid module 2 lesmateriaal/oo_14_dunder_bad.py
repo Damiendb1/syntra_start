@@ -42,7 +42,7 @@ class WeirdNumber:
         return self._new(self.value ** self._v(other))
 
     def __rmul__(self, other):
-        return self._new(self._v(other) ** (1/self.value))
+        return self._new(self._v(other) ** (1 / self.value))
 
     def __truediv__(self, other):
         # '/' actually does modulus
@@ -64,7 +64,7 @@ class WeirdNumber:
     def __rmod__(self, other):
         return self._new(self._v(other) * self.value)
 
-    def __pow__(self, other, modulo = None):
+    def __pow__(self, other, modulo=None):
         return self._new(self.value * self._v(other))
 
     def __rpow__(self, other):
@@ -116,7 +116,6 @@ class WeirdNumber:
         return self.value < self._v(other) + 1
 
 
-
 x = WeirdNumber(3)
 y = WeirdNumber(2)
 print(f"{x=}")
@@ -138,4 +137,3 @@ print(f"{str(WeirdNumber(6))=}")
 print(f"{repr(WeirdNumber(6))=}")
 
 print(f"{x < y=}")
-

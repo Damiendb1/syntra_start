@@ -1,5 +1,5 @@
 # python heeft nog heel wat andere dunder methods
-# voor de volledige opliisting: https://www.pythonmorsels.com/every-dunder-method/
+# voor de volledige oplijsting: https://www.pythonmorsels.com/every-dunder-method/
 # Heel wat dunders zal je zelden of nooit nodig hebben.
 from decimal import Decimal
 
@@ -30,7 +30,7 @@ class Gram:
 
     def __round__(self, ndigits: int | None = None):
         return Gram(round(self.value, ndigits))
-    
+
 
 w1 = Gram(Decimal('-250.3'))
 print(-w1)
@@ -41,20 +41,20 @@ print(round(w1))
 
 # Oefening 1
 # Maak een class UppercaseString die een string bewaart.
-# Twee instanties  zijn gelijk wanneer ze in uppercase gelijk zijn
-#   s1 = NoCaseString("Hello World")
-#   s2 = NoCaseString("hello WOrld")
+# Twee instanties zijn gelijk wanneer ze in uppercase gelijk zijn
+#   s1 = UppercaseString("Hello World")
+#   s2 = UppercaseString("hello WOrld")
 #   print(s1 == s2)  # => True
 
 # De som van twee UppercaseStrings is:
 #   de concatenatie van de eerste letter van s1, dan de eerste letter van s2,
 #   dan de tweede letter van s1, dan de tweede letter van s2, enz.
 #   Alles in uppercase.
-#   UppercaseString("Hallo") + UppercaseString("Hallo")  => HCALLALAOSSEN
+#   UppercaseString("Hallo") + UppercaseString("Claassen")  => HCALLALAOSSEN
 #   UppercaseString("Claassen" + UppercaseString("arVId")  => CALRAVAISDSEN
 
 # De gehele deling van twee UppercaseString's is s1 zonder alle letters van s2
-#   UppercaseString("Hallo") // UppercaseString("Claassen")  => HLLO
+#   UppercaseString("Hallo") // UppercaseString("Claassen")  => HO
 #   UppercaseString("Claassen") // UppercaseString("hello")  => CAASSN
 
 # Oefening 2

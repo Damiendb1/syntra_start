@@ -102,8 +102,6 @@ class Distance:
         return self.__class__(in_own_unit)
 
 
-
-
 class Meter(Distance):
     def get_factor(self):
         return 1

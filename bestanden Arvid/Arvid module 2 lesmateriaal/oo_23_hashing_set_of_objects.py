@@ -7,7 +7,7 @@ import datetime
 
 class Person:
 
-    def __init__(self, name: str, firstname: str, date_of_birth: datetime):
+    def __init__(self, name: str, firstname: str, date_of_birth: datetime.date):
         self.name = name
         self.first_name = firstname
         self.date_of_birth = date_of_birth
@@ -37,7 +37,7 @@ print(f"op basis van id: {p2==p3=}")  # dit is False want p2 en p3 zijn twee tot
 # zijn ze niet gelijk aan elkaar. Person implementeert geen __eq__ dunder.
 
 class Person:
-    def __init__(self, name: str, firstname: str, date_of_birth: datetime):
+    def __init__(self, name: str, firstname: str, date_of_birth: datetime.date):
         self.name = name
         self.first_name = firstname
         self.date_of_birth = date_of_birth

@@ -10,7 +10,7 @@ from decimal import Decimal
 # w1 * w2 is niet mogelijk. Hoeveel is 1kg * 30g.
 # w1 * int is wel mogelijk: 30g * 2 = 60g
 # w1 / w2 is niet mogelijk  mogelijk: 1kg / 30g  is zin loog
-# w1 / int of is wem mogelijk 30g/6 = 5g
+# w1 / int of is wel mogelijk 30g/6 = 5g
 
 
 class Gram:
@@ -28,6 +28,8 @@ class Gram:
 
     def __eq__(self, other):
         return self.value == other.value
+
+    # Voor de bondigheid zijn de comparison dunder methods weggelaten.
 
     def __add__(self, other):
         # tel de waarden van beide gewichten samen en maak een nieuw gewicht aan
@@ -56,8 +58,6 @@ class Gram:
 w1 = Gram(Decimal('10'))
 w2 = Gram(Decimal('15'))
 w3 = Gram(Decimal('30'))
-
-
 
 
 

@@ -34,6 +34,7 @@ class BasicRoom(Room):
     """
     A basic room costs 120 EUR per night
     """
+
     def price_per_night(self):
         """
         Determine the price per night for this room
@@ -46,16 +47,76 @@ class PremiumRoom(Room):
     """
     A premium room costs 250 EUR per night but has a better view
     """
+
     def price_per_night(self):
         return 250
+
+
+class Presidential(Room):
+    def price_per_night(self):
+        return 25000
 
 
 class Suite(Room):
     """
     A suite costs 400 EUR per night but has a better view and a balcony
     """
+
     def price_per_night(self):
         return 400
+
+
+class Excelsior(Room):
+    """
+    A suite costs 400 EUR per night but has a better view and a balcony
+    """
+
+    def price_per_night(self):
+        return 1400
+
+
+class VeryCheap(Room):
+    """
+    A suite costs 400 EUR per night but has a better view and a balcony
+    """
+
+    def price_per_night(self):
+        return 40
+
+
+# De uitleg voor factory methods volgt in een volgende les.
+def factory_ifs(room_type, number, floor):
+    if room_type == 'B':
+        room = BasicRoom(number, floor)
+    elif room_type == 'P':
+        room = PremiumRoom(number, floor)
+    elif room_type == 'S':
+        room = Suite(number, floor)
+    elif room_type == 'E':
+        room = Excelsior(number, floor)
+    elif room_type == 'V':
+        room = VeryCheap(number, floor)
+    else:
+        raise ValueError(f"Type {room_type} is niet gekend.")
+    return room
+
+
+FACTORY_DICT = {
+    "B": BasicRoom,
+    "P": PremiumRoom,
+    "E": Excelsior,
+    "V": VeryCheap,
+    'S': Suite,
+    "PR": Presidential
+}
+
+
+def factory_dict(room_type, number, floor):
+    target_type = FACTORY_DICT.get(room_type)
+    if target_type is None:
+        raise ValueError("Room type niet gevonden")
+    room = target_type(number, floor)  # BasicRoom(number, floor)
+    return room
 
 
 class Hotel:
@@ -83,23 +144,25 @@ class Hotel:
         else:
             raise ValueError("Room must be of type Room")
 
-def main():
 
-    SyntraPalace = Hotel("Syntra Palace")
-    SyntraPalace.add_room(BasicRoom("10", 1))
-    SyntraPalace.add_room(BasicRoom("11", 1))
-    SyntraPalace.add_room(BasicRoom("12", 1))
-    SyntraPalace.add_room(BasicRoom("13", 1))
-    SyntraPalace.add_room(PremiumRoom("20", 2))
-    SyntraPalace.add_room(PremiumRoom("21", 2))
-    SyntraPalace.add_room(PremiumRoom("22", 2))
-    SyntraPalace.add_room(Suite("30", 3))
-    print(SyntraPalace)
-    print(SyntraPalace.full_description())
+def main():
+    syntra_palace = Hotel("Syntra Palace")
+    syntra_palace.add_room(BasicRoom("10", 1))
+    syntra_palace.add_room(BasicRoom("11", 1))
+    syntra_palace.add_room(BasicRoom("12", 1))
+    syntra_palace.add_room(BasicRoom("13", 1))
+    syntra_palace.add_room(PremiumRoom("20", 2))
+    syntra_palace.add_room(PremiumRoom("21", 2))
+    syntra_palace.add_room(PremiumRoom("22", 2))
+    syntra_palace.add_room(Suite("30", 3))
+    print(syntra_palace)
+    print(syntra_palace.full_description())
 
     # Voeg een bestaande kamer toe
 
-    SyntraPalace.add_room(Suite("30", 3))
+    syntra_palace.add_room(Suite("22", 3))
+    print(syntra_palace)
+
 
 if __name__ == "__main__":
     main()

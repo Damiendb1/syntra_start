@@ -1,5 +1,3 @@
-
-
 class Gender:
     def __init__(self, value: str):
         if value not in ["M", "V", "X"]:
@@ -13,7 +11,6 @@ class Gender:
             return "man"
         if self.value == "V":
             return "vrouw"
-
 
 MALE = Gender("M")
 FEMALE = Gender("V")
@@ -66,6 +63,14 @@ class Gender2:
 
     @value.setter
     def value(self, value):
+        # Optie 1: Niet toelaten dat waarde wordt aangepast
+        #           raise NotImplementedError("Je mag value niet aanpassen")
+        # Optie 2: Waarde overnemen
+        #           self._value = value
+        # Optie 3: Combinatie:
+        #          waarde controleren, en ValueError raisen
+        #          als het geen toegelaten waarde is
+        #          anders, de waarde overnemen.
         if value not in ["M", "V", "X"]:
             raise ValueError("Value must be M, V, of X")
         self._value = value
@@ -94,22 +99,47 @@ M.value = "Y"
 # 1.2: Voeg een attribuut date_of_birth toe aan de klasse Person.
 #      Zorg er voor dat deze datum niet voor 1/1/1900 kan liggen en ook niet in de toekomst.
 #
-#
 # class Person:
-#     def __init__(self, name: str, gender: Gender):
+#     def __init__(self, name: str):
 #         name = name.strip()
 #         self.name = name
-#         self.gender = gender
 #
 #     def __repr__(self):
 #         return f"{self.name} is een {self.gender}"
 #
-#     @staticmethod
-#     def coffee_price():
-#         return 3
 
-#
+from oo_09_data import Person
+
+class Book:
+    def __init__(self, input_title, author):
+        self._title = input_title
+        self.author = author
+        self._publisher = None
+
+    def __repr__(self):
+        return f"{self._title} geschreven door '{self.author}'"
+
+    @property
+    def title(self):
+        return f"De titel van het book is {self._title}"
+
+    @title.setter
+    def title(self, value):
+        # raise AttributeError("Titel van een een boek mag niet wijzigen")
+        if isinstance(value, str):
+            self._title = value
+        else:
+            raise TypeError("Titel moet een string zijn")
 
 
 
+book = Book("Python in 30minutes", Person("Superman", Gender("M")))
 
+print(book)
+print(book.title)
+book.title = "Python in 24 uur"
+book.title = 24
+print(book._title)
+print(book._publisher)
+book._publisher = "Marvel"
+print(book._publisher)
