@@ -7,9 +7,9 @@ Voer deze test uit ter controle
 import datetime
 import unittest
 
-from module02.movie.movie import Movie, create_movie, Comedy, Horror, Romance
-from module02.movie.rating import MovieRating, get_rating
-from module02.person.person import Person, get_person
+from Module2.trash import Movie, create_movie, Comedy, Horror, Romance
+from Module2.trash import MovieRating, get_rating
+from Module2.trash import Person, get_person
 
 EXISTING_RATINGS = ["G", "PG", "PG-13", "R", "NR", "NC17"]
 NAME = "Claassen Arvid"

@@ -8,7 +8,9 @@ import os
 from typing import List
 
 # custom imports
-from module02.movie.movie import Movie, create_movie
+from module02.movie.rating import MovieRating, get_rating
+from module02.movie.movie import Movie, create_movie, Horror
+from module02.person.person import _PERSOON_CACHE
 
 # These constants must point to the input file reviews.csv,
 # and the location of the output file (see item 9)

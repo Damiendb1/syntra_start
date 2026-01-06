@@ -4,10 +4,10 @@ from datetime import datetime
 from typing import Optional
 from typing import List
 
-from module02.movie.rating import MovieRating
-from module02.person.person import Person
-from module02.person.person import get_person
-from module02.movie.rating import get_rating
+from Module2.trash import MovieRating
+from Module2.trash import Person
+from Module2.trash import get_person
+from Module2.trash import get_rating
 
 def _parse_int(value: object) -> Optional[int]:
     if value is None:
